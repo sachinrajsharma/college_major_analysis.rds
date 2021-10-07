@@ -1,0 +1,95 @@
+---
+title: "Assignment_Answers"
+author: "Sachin Sharma"
+date: "10/7/2021"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Importing Libraries
+
+```{r}
+library(tidyr)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(corrgram)
+library(corrplot)
+library(tinytex)
+
+df <- read.csv("college.csv")
+```
+
+
+
+# Checking the data 
+
+```{r}
+
+head(df)
+
+view(df)
+
+
+
+```
+
+
+# To handle this data to answer our questions, we need to arrange data properly by using the following codes : 
+
+```{r}
+
+df_1 <- df[order(df$perc_low_wage_jobs),]
+
+head(df_1)
+
+```
+
+# The above chunk of code has arranged the last column which is perc_low_wage_jobs in ascending order, which will help us to answer our question of what is the correlation between major subject and low wage jobs.
+
+# Now let us plot a barplot to see the relation with the help of our data frame df_1
+
+
+```{r}
+
+barplot(df_1$perc_low_wage_jobs, names.arg = df_1$major,main = "Low Wage Jobs Vs. Major Subject" )
+
+
+
+```
+
+# The above graph is showing that there is strong correlation between major subject and low wage income. 
+
+\textcolor{red}{\Large Question: Based on your analysis, would you conclude that there is a significant association between college major category and income?}
+
+\textcolor{blue}{\Large Answer : With the help of the graph , we can say that there is significant association between college major category and income. }
+
+
+
+\textcolor{red}{\Large Question : Please type a few sentences describing your results.}
+
+\textcolor{blue}{\Large As we can see with the help of graph that bars are increasing as there is change in the major subjects viz. Computer Science, Mathematics, ......and so on.. We can see that minimum wage salary has been increasing as there is change in major subjects. This graph show us that there is very strong association between College major category and income.  }
+
+
+
+```{r}
+
+
+
+```
+
+
+
+
+```{r}
+
+```
+
+
+
+
